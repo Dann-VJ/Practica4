@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Nombre del programa: [SA] Práctica 2.
+Autor: Daniel Vázquez Joaquín.
+Materia: DAPPS.
+Tarea: [SA] Práctica 4.
+Fecha: 20/02/22.
+Descripción: Es la interfaz de una calculadora y su funcionalidad en
+el archivo CalculadoraActivity.
+
+Contenido:
+El archivo contiene los siguientes elementos:
+LinearLayout (vertical)
+TextView
+TableLayout
+TableRow
+Button
+-->
+<!--
+Se agregó LineaLayout para agrupar todo el contenido que se
+encuentre en el
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="12"
+    tools:context=".CalculadoraActivity">
+
+
+    <!--
+    Linear con la tercera parte de el viewport
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        android:background="@color/fondo_calc"
+        android:layout_weight="3">
+
+        <!--
+        En este textview será la interfaz de visualización de los
+        números que se escriban
+        -->
+        <TextView
+            android:id="@+id/tv_display"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textAlignment="textEnd"
+            style="@style/TextAppearance.MaterialComponents.Headline3"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="4dp"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+    <!--
+    Creamos un Layout con la parte restante del el viewport en la cual
+    se visualizaran los botones
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/fondo_calc"
+        android:layout_weight="9" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10">
+
+            <!--
+            Los TL se componen por  filas y las filas
+            por componentes (columnas)
+
+            Se agregan los button para simular los botones que
+            tendrá nuestra calculadora
+            -->
+            <TableRow android:layout_weight="2">
+                <Button android:text="AC"
+                    android:id="@+id/btn_ac"
+                    style="@style/Theme.Practica4.Botones2"/>
+
+                <Button android:text="+/-"
+                    android:id="@+id/btn_masmenos"
+                    style="@style/Theme.Practica4.Botones2"/>
+
+                <Button android:text="%"
+                    android:id="@+id/btn_porcentaje"
+                    style="@style/Theme.Practica4.Botones2"/>
+                <Button android:text="/"
+                    android:id="@+id/btn_div"
+                    style="@style/Theme.Practica4.Botones2" />
+            </TableRow>
+
+            <TableRow android:layout_weight="2">
+                <Button android:text="7"
+                    android:id="@+id/btn_n7"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="8"
+                    android:id="@+id/btn_n8"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="9"
+                    android:id="@+id/btn_n9"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="X"
+                    android:id="@+id/btn_por"
+                    style="@style/Theme.Practica4.Botones2" />
+            </TableRow>
+
+            <TableRow android:layout_weight="2">
+                <Button android:text="4"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="5"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="6"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="-"
+                    android:id="@+id/btn_menos"
+                    style="@style/Theme.Practica4.Botones2" />
+            </TableRow>
+
+            <TableRow android:layout_weight="2">
+                <Button android:text="1"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="2"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="3"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="+"
+                    android:id="@+id/btn_mas"
+                    style="@style/Theme.Practica4.Botones2" />
+            </TableRow>
+
+            <TableRow android:layout_weight="2">
+                <Button android:text="0"
+                    android:layout_span="2"
+                    style="@style/Theme.Practica4.Botones1"
+                    android:onClick="clickNumero"/>
+
+                <Button android:text="."
+                    android:id="@+id/btn_punto"
+                    style="@style/Theme.Practica4.Botones1"/>
+
+                <Button android:text="="
+                    android:id="@+id/btn_igual"
+                    style="@style/Theme.Practica4.Botones2"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>
